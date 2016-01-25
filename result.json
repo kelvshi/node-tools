@@ -1,0 +1,61 @@
+{
+    "./assets": {
+        "pid": ".",
+        "children": [
+            "images"
+        ],
+        "covers": []
+    },
+    "assets\\images": {
+        "pid": "assets",
+        "children": [
+            "3D",
+            "One"
+        ],
+        "covers": []
+    },
+    "assets\\images\\3D": {
+        "pid": "assets\\images",
+        "children": [
+            "ABC",
+            "XYZ"
+        ],
+        "covers": []
+    },
+    "assets\\images\\One": {
+        "pid": "assets\\images",
+        "children": [
+            "201301",
+            "201501"
+        ],
+        "covers": []
+    },
+    "assets\\images\\3D\\ABC": {
+        "pid": "assets\\images\\3D",
+        "children": [],
+        "covers": [
+            "test1.txt",
+            "test2.txt"
+        ]
+    },
+    "assets\\images\\3D\\XYZ": {
+        "pid": "assets\\images\\3D",
+        "children": [],
+        "covers": [
+            "test3.txt"
+        ]
+    },
+    "assets\\images\\One\\201301": {
+        "pid": "assets\\images\\One",
+        "children": [],
+        "covers": [
+            "ada.txt",
+            "adadddd.txt"
+        ]
+    },
+    "assets\\images\\One\\201501": {
+        "pid": "assets\\images\\One",
+        "children": [],
+        "covers": []
+    }
+}
