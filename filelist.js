@@ -2,6 +2,11 @@ var fs = require("fs");
 var path = require("path");
 var basePath = "./assets";
 var FileObj = {};
+var dirObj = {};
+var dirPath = "./dirlist.json";
+if(fs.existsSync(dirPath)){
+	dirObj = require(dirPath);
+}
 // 读取文件目录信息的函数
 var FileList = {
 	searchDir: function (pth) {
@@ -12,6 +17,7 @@ var FileList = {
 			// var keyPath = path.basename(pth);
 			var keyPath = pth;
 			FileObj[keyPath] = {};
+			FileObj[keyPath].name = path.basename(pth);
 			FileObj[keyPath].pid = parentPath;
 			FileObj[keyPath].children = new Array();
 			FileObj[keyPath].covers = new Array();
@@ -30,7 +36,7 @@ var FileList = {
 						FileObj[keyPath].covers.push(item);
 					}
 				});
-				fs.writeFileSync("./result.json", JSON.stringify(FileObj, null, 4));
+				fs.writeFileSync("./filelist.json", JSON.stringify(FileObj, null, 4));
 			}
 		});
 	}

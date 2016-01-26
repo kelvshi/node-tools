@@ -1,5 +1,6 @@
 {
     "./assets": {
+        "name": "assets",
         "pid": ".",
         "children": [
             "images"
@@ -7,6 +8,7 @@
         "covers": []
     },
     "assets\\images": {
+        "name": "images",
         "pid": "assets",
         "children": [
             "3D",
@@ -15,6 +17,7 @@
         "covers": []
     },
     "assets\\images\\3D": {
+        "name": "3D",
         "pid": "assets\\images",
         "children": [
             "ABC",
@@ -23,6 +26,7 @@
         "covers": []
     },
     "assets\\images\\One": {
+        "name": "One",
         "pid": "assets\\images",
         "children": [
             "201301",
@@ -31,6 +35,7 @@
         "covers": []
     },
     "assets\\images\\3D\\ABC": {
+        "name": "ABC",
         "pid": "assets\\images\\3D",
         "children": [],
         "covers": [
@@ -39,6 +44,7 @@
         ]
     },
     "assets\\images\\3D\\XYZ": {
+        "name": "XYZ",
         "pid": "assets\\images\\3D",
         "children": [],
         "covers": [
@@ -46,6 +52,7 @@
         ]
     },
     "assets\\images\\One\\201301": {
+        "name": "201301",
         "pid": "assets\\images\\One",
         "children": [],
         "covers": [
@@ -54,6 +61,7 @@
         ]
     },
     "assets\\images\\One\\201501": {
+        "name": "201501",
         "pid": "assets\\images\\One",
         "children": [],
         "covers": []
