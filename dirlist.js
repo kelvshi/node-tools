@@ -10,6 +10,7 @@ var DirList = {
 		FileObj[pth] = {
 			id: idCount++,
 			name: path.basename(pth),
+			path: pth.replace(/\\/g,"/")
 		}
 		var parent = path.dirname(pth);
 		if(!FileObj[pth].pid){
