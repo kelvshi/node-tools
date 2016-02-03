@@ -1,4 +1,9 @@
-{
+/**
+ * 左侧菜单插件
+ * @author kelvshi
+ */
+define('data/files', function(require, exports, module) {
+    var menuJson = [{
     "id": 0,
     "name": "assets",
     "path": "assets",
@@ -179,4 +184,7 @@
             ]
         }
     ]
-}
+}];
+
+    module.exports = menuJson;
+});

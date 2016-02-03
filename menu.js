@@ -1,9 +1,9 @@
 var fs = require("fs");
 var path = require("path");
-var format = require("./format");
 var basePath = "assets";
 var idCount = 0;
 var FileObj = {};
+var menuObj = new Array();
 // 读取文件目录信息的函数
 var DirList = {
 	searchDir: function (pth) {
@@ -53,6 +53,56 @@ var DirList = {
 		// 	}
 		// });
 	},
+
+	createMenu:function () {
+		var self = this;
+		self.searchDir(basePath);
+		var dirObj = FileObj;
+		for(var key in dirObj){
+			menuObj.push(dirObj[key]);
+		}
+		self.findChildren(menuObj[0]);
+		fs.writeFileSync("menu.json", JSON.stringify(menuObj[0], null, 4));
+		console.log(JSON.stringify(menuObj[0], null, 4));
+		self.generateMenu(JSON.stringify(menuObj[0], null, 4));
+	},
+
+	// 查询子元素的递归
+	findChildren:function (item) {
+		var self = this;
+		var thisId = item.id;
+		menuObj.forEach(function (value) {
+			if(value.pid == thisId){
+				// 判断是否有子元素，有继续往下，没有存下
+				if(self.isHasParent(value)){
+					self.findChildren(value);
+				}
+				if(!item.children){
+					item.children = new Array();
+				}
+				item.children.push(value);
+			}
+		})
+	},
+
+	// 生产可用于本地的menu.js
+	generateMenu:function (menuString) {
+		var info = fs.readFileSync("./dist/files.tpl").toString();
+		var files = info.replace("/**includeMenu**/", menuString);
+		fs.writeFileSync("./dist/files.js", files);
+	},
+
+	isHasParent:function (item) {
+		var flag = false;
+		var thisId = item.id;
+		menuObj.forEach(function (value) {
+			if(value.pid == thisId){
+				flag = true;
+			}
+		});
+		return flag;
+	}
 }
-DirList.searchDir(basePath);
+
+DirList.createMenu();
 module.exports = DirList;

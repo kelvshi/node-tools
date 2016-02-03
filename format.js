@@ -49,5 +49,5 @@ var Format = {
 		return flag;
 	}
 }
-Format.createMenu();
+// Format.createMenu();
 module.exports = Format;
